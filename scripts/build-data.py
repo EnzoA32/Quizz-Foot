@@ -6,12 +6,17 @@ B = os.environ.get("TM_BASE", "https://pub-e682421888d945d684bcae8890b0ec20.r2.d
 csv.field_size_limit(10**7)
 
 def rows(name):
-    with urllib.request.urlopen(B + name + ".csv.gz") as r:
-        t = io.TextIOWrapper(gzip.GzipFile(fileobj=r), encoding="utf-8", newline="")
-        rd = csv.DictReader(t)
-        print(name, "colonnes:", rd.fieldnames, file=sys.stderr)
-        for x in rd:
-            yield x
+    url = B + name + ".csv.gz"
+    req = urllib.request.Request(
+        url,
+        headers={"User-Agent": "Mozilla/5.0"}
+    )
+    with urllib.request.urlopen(req) as r:
+        t = io.TextIOWrapper(
+            gzip.GzipFile(fileobj=r),
+            encoding="utf-8",
+            newline=""
+        )
 
 def g(r, *keys):
     for k in keys:
