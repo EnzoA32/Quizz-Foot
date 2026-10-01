@@ -17,7 +17,10 @@ def rows(name):
             encoding="utf-8",
             newline=""
         )
-
+        rd = csv.DictReader(t)
+        print(name, "colonnes:", rd.fieldnames, file=sys.stderr)
+        for x in rd:
+            yield x
 def g(r, *keys):
     for k in keys:
         v = r.get(k)
