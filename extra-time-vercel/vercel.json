@@ -1,1 +1,0 @@
-{ "functions": { "api/verify.js": { "includeFiles": "data/**", "maxDuration": 30 } } }
