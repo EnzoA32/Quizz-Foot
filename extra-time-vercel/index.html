@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Extra Time</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>:root{--bg:#050f24;--bg2:#0a1a38;--pn:#0f2347;--pn2:#14305e;--cy:#4da3ff;--ac:#7fd4ff;--tx:#eaf2ff;--card:#0f2347;--line:rgba(77,163,255,.22);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;color:var(--tx);font-family:Inter,system-ui,sans-serif;background:radial-gradient(circle at 85% 0,#0d2a5c,var(--bg) 55%);background-color:var(--bg)}
+.shell{display:flex;min-height:100vh}
+.side{width:250px;flex:none;background:rgba(5,15,36,.92);border-right:1px solid var(--line);padding:18px 12px;position:sticky;top:0;height:100vh;overflow:auto}
+.brand{font-family:Anton,Impact,sans-serif;font-size:30px;text-transform:uppercase;line-height:.95;padding:4px 10px 2px;cursor:pointer}.brand span{color:var(--cy)}
+.slg{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);padding:0 10px 14px;opacity:.8}
+.nh{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6f8bb8;padding:12px 10px 6px}
+.ni{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;color:#c4d6f2;border-left:3px solid transparent}
+.ni b{margin-left:auto;font-size:11px;background:var(--pn2);border-radius:6px;padding:2px 7px;color:var(--ac)}
+.ni:hover{background:var(--pn)}.ni.on{background:var(--pn2);color:#fff;border-left-color:var(--cy)}
+.main{flex:1;min-width:0}
+.w{max-width:820px;margin:0 auto;padding:22px 16px 60px}
+h1,h2,.big{font-family:Anton,Impact,'Arial Narrow',sans-serif;text-transform:uppercase;font-weight:400;margin:0;line-height:.95}
+h1{font-size:clamp(48px,12vw,96px)}h1 span{color:var(--cy)}
+h2{font-size:32px;margin-bottom:10px}
+.sub{color:var(--ac);letter-spacing:.18em;font-size:12px;text-transform:uppercase;margin:6px 0 20px}
+.card{background:linear-gradient(180deg,var(--pn),#0c1c3c);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.tile{background:linear-gradient(160deg,var(--pn2),var(--pn));border:1px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;transition:.15s;position:relative;overflow:hidden}
+.tile:hover{transform:translateY(-3px);border-color:var(--cy)}
+.tile .n{position:absolute;right:10px;top:-6px;font-family:Anton,sans-serif;font-size:70px;color:rgba(77,163,255,.14)}
+.tile .big{font-size:30px}.tile .k{color:var(--ac);font-weight:700;font-size:13px;margin:8px 0 6px}.tile p{margin:0;font-size:12px;opacity:.7;line-height:1.4}
+.g{cursor:pointer}
+label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);margin:12px 0 4px}
+input,select{width:100%;padding:11px;border-radius:8px;border:1px solid var(--line);background:#07142c;color:#fff;font:inherit}
+.r{display:flex;gap:8px}.r>*{flex:1}
+button{font-family:Anton,Impact,sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:17px;padding:11px 18px;border:0;border-radius:8px;background:var(--cy);color:#04122b;cursor:pointer;margin-top:12px}
+button.s{background:transparent;color:var(--ac);border:1px solid var(--cy)}button:disabled{opacity:.5}
+.err{color:#ffb4b4;font-size:14px;min-height:18px;margin-top:6px}
+.tag{display:inline-block;background:var(--pn2);color:var(--ac);border:1px solid var(--line);padding:2px 10px;border-radius:6px;font-weight:700;font-size:13px;margin:2px}
+.row{display:flex;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.win{color:var(--ac)}.t{font-size:13px;opacity:.75}
+.tb{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:420px}td,th{padding:8px 6px;text-align:left;font-size:13px}
+th{color:#04122b;background:linear-gradient(90deg,#4da3ff,#7fd4ff);text-transform:uppercase;font-size:11px;letter-spacing:.08em}
+table.st tr:nth-child(even) td{background:rgba(77,163,255,.07)}table.st tr.f td{color:var(--ac);font-weight:700}
+td input{padding:7px;min-width:70px}
+@media(max-width:860px){.shell{display:block}.side{position:fixed;left:0;right:0;bottom:0;top:auto;width:auto;height:auto;z-index:9;display:flex;gap:4px;overflow-x:auto;padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));border-right:0;border-top:1px solid var(--line);background:rgba(5,15,36,.97);align-items:center}.nh,.slg,.brand{display:none}.ni{white-space:nowrap;padding:8px 12px;border-left:0;font-size:13px;flex:none}.ni b{display:none}.w{padding-bottom:96px}input,select{font-size:16px}h2{font-size:28px}}
+.pitch{position:relative;height:430px;border:2px solid #fff;border-radius:10px;background:linear-gradient(#0b2bd6,#0a22b0);overflow:hidden;margin-bottom:6px}
+.pitch:before{content:"";position:absolute;left:0;right:0;top:50%;border-top:2px solid rgba(255,255,255,.7)}
+.pitch:after{content:"";position:absolute;left:50%;top:50%;width:90px;height:90px;margin:-45px;border:2px solid rgba(255,255,255,.7);border-radius:50%}
+.pawn{position:absolute;transform:translate(-50%,-50%);width:120px;text-align:center;z-index:1}
+.jsy{width:54px;height:50px;margin:0 auto;background:#0a1450;color:#fff;font-family:Anton,Impact,sans-serif;font-size:24px;line-height:54px;clip-path:polygon(20% 0,35% 6%,65% 6%,80% 0,100% 22%,86% 36%,78% 30%,78% 100%,22% 100%,22% 30%,14% 36%,0 22%)}
+.lab{background:#fff;color:#06204a;border-radius:4px;padding:3px 4px;font-size:11px;margin-top:3px;text-transform:uppercase;font-weight:700}
+.lab b{display:block}.lab span{display:block;font-weight:400;font-size:10px;opacity:.7}
+.lab input{width:100%;padding:4px;margin-top:3px;font-size:12px;background:#eef;color:#06204a;border:1px solid #99a}
+.blob{position:relative;width:min(300px,80vw);aspect-ratio:1;margin:18px auto;border-radius:58% 42% 52% 48%/50% 55% 45% 50%;overflow:hidden;box-shadow:-14px -10px 0 -2px #020e2a,12px 8px 0 -4px rgba(255,255,255,.12)}
+.bi{position:absolute;inset:0;background:center/cover #1b4fb8}
+.bi.nm{display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;background:linear-gradient(135deg,#1b4fb8,#0a2a7a)}
+.bi.nm span{font-family:Anton,Impact,sans-serif;font-size:38px;text-transform:uppercase;line-height:1}
+.mask{position:absolute;left:0;right:0;background:rgba(5,20,60,.82);backdrop-filter:blur(14px)}
+.cap{text-align:center;font-weight:700}.cap span{opacity:.6;font-weight:400}
+.opts{position:relative;width:332px;max-width:100%;height:245px;margin:14px auto}
+.ob{position:absolute;width:100px;height:100px;border-radius:50%;background:#2b2b2b;color:#fff;border:3px solid transparent;font-family:Inter,sans-serif;font-size:12px;font-weight:700;padding:6px;margin:0;text-transform:none;letter-spacing:0;line-height:1.15}
+.ob.ok{background:#1f8f4a}.ob.ko{background:#b3261e}
+.pitch{height:380px;background:linear-gradient(#0e4a96,#06224a);border:2px solid var(--cy)}
+.tl{position:absolute;transform:translate(-50%,-50%);width:38%;background:linear-gradient(160deg,var(--pn2),var(--pn));border:1px solid var(--cy);border-radius:10px;padding:7px 4px;text-align:center;z-index:1;animation:popt .35s}
+.tl.e{opacity:.5;border-style:dashed;animation:none}.tl b{display:block;font-size:13px;margin:2px 0}.tl small{display:block;font-size:10px;color:var(--ac);text-transform:uppercase;letter-spacing:.06em}
+.duel{display:flex;flex-direction:column;align-items:center;gap:10px;margin:26px 0}
+.tm{font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-size:clamp(40px,12vw,76px);line-height:1;padding:14px 22px;border:1px solid var(--cy);border-radius:12px;background:linear-gradient(160deg,var(--pn2),var(--pn));width:100%;text-align:center}
+.tm.l{animation:inL .7s both}.tm.r{animation:inR .7s .9s both}.vs{font-family:Anton,sans-serif;font-size:36px;color:var(--cy);opacity:0;animation:pop .5s 1.6s forwards}
+.spin{font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-size:clamp(34px,10vw,64px);text-align:center;border:1px solid var(--cy);border-radius:12px;padding:30px 12px;margin:14px 0;background:linear-gradient(160deg,var(--pn2),var(--pn))}.spin.done{color:var(--ac);animation:pop .5s}
+@keyframes inL{from{transform:translateX(-120%);opacity:0}to{transform:none;opacity:1}}@keyframes inR{from{transform:translateX(120%);opacity:0}to{transform:none;opacity:1}}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}@keyframes popt{from{transform:translate(-50%,-50%) scale(.6);opacity:0}to{transform:translate(-50%,-50%) scale(1);opacity:1}}@keyframes fi{to{opacity:1}}
+.tl{--s:1}
+</style></head><body><div class="shell"><nav class="side" id="nav"></nav><main class="main"><div class="w" id="app"></div></main></div>
+<script>
+const $=id=>document.getElementById(id);
+const NAT=["France","Belgique","Brésil","Argentine","Espagne","Allemagne","Italie","Portugal","Angleterre","Pays-Bas","Croatie","Uruguay"];
+const CLU=["FC Barcelone","Real Madrid","Manchester City","Manchester United","Liverpool","Bayern Munich","PSG","Juventus","AC Milan","Inter","Chelsea","Arsenal","Atlético Madrid","Dortmund","Ajax","Olympique de Marseille","Olympique Lyonnais","Monaco","Napoli","Tottenham"];
+const COMP=["Ligue des champions","Coupe du monde","Euro","Premier League","Liga","Serie A","Bundesliga","Ligue 1","Copa América","Ligue Europa"];
+const TH=["Meilleurs buteurs de l'histoire de la Ligue des champions","Joueurs les plus capés de l'histoire de la Coupe du monde","Meilleurs buteurs de l'histoire de la Premier League","Transferts les plus chers de l'histoire","Meilleurs buteurs de l'histoire de la Liga","Joueurs ayant remporté le plus de Ligues des champions","Meilleurs buteurs de l'histoire de la Coupe du monde","Meilleurs buteurs de l'histoire de Ligue 1","Joueurs les plus capés en sélection","Meilleurs passeurs de l'histoire de la Ligue des champions"];
+const OT=["Les Ballons d'Or","Les stades mythiques","Les transferts records","Les buteurs de la Coupe du monde","Les entraîneurs légendaires","Les clubs historiques européens","Les gardiens de légende","Les finales de Ligue des champions","Les stars de la Premier League","Les stars de la Liga","Les légendes de Ligue 1","L'histoire de l'Euro","Les joueurs les plus capés en sélection"];
+const rnd=a=>a[Math.floor(Math.random()*a.length)];
+const norm=s=>s.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\s+/g,' ');
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const names=v=>v.split(",").map(s=>s.trim()).filter(Boolean);
+let G={};
+const GM=[["The Target","Atteignez la stat cible avec quatre joueurs.","Un club, une statistique, un objectif. À vous de combiner quatre joueurs pour vous en approcher au maximum.","s1"],["The Five","Composez votre cinq et faites parler les buteurs.","Deux équipes, cinq joueurs, un seul objectif : construire le meilleur cinq et marquer plus de buts que l'adversaire.","s2"],["Link-Up","Reliez les joueurs à travers leurs clubs.","Trouvez un joueur ayant joué dans le club donné, puis enchaînez avec un nouveau joueur de ce club. Jusqu'où pourrez-vous remonter la chaîne ?","s3"],["Top Bin","Trouvez les bonnes réponses et visez le sommet du classement.","Un thème, dix réponses cachées. Plus votre réponse est haut placée, plus elle vous rapporte de points.","s4"],["Standings","Remettez cinq éléments dans le bon ordre.","Dates, âges, buts, transferts… À vous de replacer les cinq réponses selon le critère demandé.","s5"],["The DS","Construisez votre mercato jusqu'au montant exact.","Une somme cible, des transferts historiques et un objectif : atteindre le montant demandé sans le dépasser.","s6"],["Career Path","Retrouvez le bon club dans la carrière d'un joueur.","Un joueur, plusieurs clubs, un seul bon choix. Saurez-vous reconnaître le club dans lequel il a réellement joué ?","s7"]];
+function act(n){document.querySelectorAll(".ni").forEach((e,k)=>e.classList.toggle("on",k==n))}
+function buildNav(){$("nav").innerHTML=`<div class="brand" onclick="home()">Extra<br><span>Time</span></div><div class="slg">Can you survive Extra Time?</div><div class="nh">Navigation</div><div class="ni on" onclick="home()">⌂ Accueil</div><div class="nh">Mini-jeux</div>`+GM.map((g,k)=>`<div class="ni" onclick="${g[3]}()">${g[0]}<b>${k+1}</b></div>`).join("")}
+function home(){act(0);
+$("app").innerHTML=`<h1>Extra<br><span>Time</span></h1><div class="sub">Can you survive Extra Time?</div><div class="tiles">${GM.map((g,k)=>`<div class="tile" onclick="${g[3]}()"><div class="n">${k+1}</div><div class="big">${g[0]}</div><div class="k">${g[1]}</div><p>${g[2]}</p></div>`).join("")}</div>`}
+function back(){return `<button class="s" onclick="home()">← Menu</button>`}
+/* JEU 1 */
+function s1(){
+$("app").innerHTML=`<h2>The Target</h2><div class="card">
+<label>Joueurs (séparés par des virgules)</label><input id="p" value="Joueur 1, Joueur 2">
+<label>Club / sélection / compétition</label><input id="c" placeholder="FC Barcelone">
+<div class="r"><div><label>Statistique</label><select id="st"><option>buts</option><option>matchs titulaires</option><option>titres</option><option>passes décisives</option></select></div>
+<div><label>Cible</label><input id="t" type="number" value="450"></div>
+<div><label>Joueurs/pers.</label><input id="n" type="number" value="4" min="1" max="8"></div></div>
+<button onclick="go1()">Lancer</button> <button class="s" onclick="draw1()">🎲 Nouveau tirage</button> ${back()}<div class="err" id="e"></div></div>`;draw1()}
+async function draw1(){
+const ty=rnd(["c","n","k"]),c=ty=="c"?rnd(CLU):ty=="n"?rnd(NAT):rnd(COMP),st=ty=="k"?rnd(["buts","matchs titulaires","passes décisives"]):rnd(["buts","matchs titulaires","titres","passes décisives"]);
+$("c").value=c;$("st").value=st;const D={"buts":400,"matchs titulaires":1200,"titres":30,"passes décisives":250};$("t").value=D[st];
+if(SM)try{const r=await SM.json(`Quizz foot : 4 joueurs additionnent leur nombre de ${st} avec/en « ${c} » pour s'approcher d'une cible. Propose une cible réaliste et stimulante (total de 4 très bons joueurs de ce contexte). JSON uniquement : {"cible":nombre entier}`,{modelTier:"default"});if(r.cible>0&&$("t"))$("t").value=Math.round(r.cible)}catch(e){}}
+function go1(){
+const p=names($("p").value),t=+$("t").value,n=+$("n").value;
+if(p.length<2||new Set(p.map(norm)).size<p.length)return $("e").textContent="Il faut au moins 2 joueurs aux noms différents.";
+if(!$("c").value.trim()||!t)return $("e").textContent="Fais un tirage ou renseigne le club et la cible.";
+G={p,t,n,c:$("c").value.trim(),st:$("st").value,picks:p.map(()=>[]),used:[],turn:0};r1()}
+function r1(){
+const{p,t,n,c,st,picks}=G,total=p.length*n;
+if(G.turn>=total)return res1();
+const i=G.turn%p.length;
+$("app").innerHTML=`<h2>${esc(c)}</h2><div class="sub">Cible : ${t} ${st}</div>
+<div class="card"><div class="t">Tour ${G.turn+1}/${total}</div><h2 class="win">${esc(p[i])}</h2>
+${G.pend?pend1():`<label>Joueur cité</label><input id="pl" placeholder="ex : Cristiano Ronaldo"><button id="b1" onclick="add1(${i})">Valider</button><div class="t">${SM?"Le nombre de "+st+" avec "+esc(c)+" est calculé automatiquement.":"Mode manuel : saisis la stat toi-même."}</div>${SM?"":'<label>Nombre de '+st+'</label><input id="v" type="number" min="0">'}`}<div class="err" id="e"></div></div>
+<div class="card">${p.map((x,k)=>`<div class="row"><b>${esc(x)}</b><span>${picks[k].map(q=>`<span class="tag">${esc(q.n)} ${q.v}</span>`).join("")} <b>= ${picks[k].reduce((a,q)=>a+q.v,0)}</b></span></div>`).join("")}</div>
+<div class="t">Déjà cités : ${G.used.length}</div>${back()}`}
+let SM=null;
+SM={json:async(q,o)=>{const r=await fetch("/api/verify",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ctx:o&&o.ctx,prompt:"Source de référence obligatoire : Transfermarkt (transfermarkt.com) pour les montants de transfert, matchs, buts, passes décisives, carrières et palmarès. En cas de doute, privilégie les données de Transfermarkt.\n"+q})});if(!r.ok)throw new Error("verify "+r.status);return r.json()}};
+function pend1(){const q=G.pend;return `<div class="big win" style="font-size:30px">${esc(q.n)}</div><div class="t">${esc(q.note||"")}</div><label>${G.st} avec ${esc(G.c)} (modifiable)</label><input id="pv" type="number" min="0" value="${q.v??""}"><div class="r"><button onclick="ok1()">Confirmer</button><button class="s" onclick="G.pend=null;r1()">Annuler</button></div>`}
+async function add1(i){
+const nm=$("pl")?$("pl").value.trim():"";
+if(!nm)return $("e").textContent="Saisis un joueur.";
+if(G.used.includes(norm(nm)))return $("e").textContent="❌ Déjà cité ! Choisis un autre joueur.";
+if(!SM){const v=$("v").value;if(v===""||+v<0)return $("e").textContent="Nombre requis.";G.pend={i,n:nm,v:+v};return ok1(true)}
+$("e").textContent="🔎 Recherche en cours…";$("b1").disabled=true;
+try{
+const r=await SM.json(`Tu es l'arbitre d'un quizz de foot. Joueur cité : "${nm}". Contexte : ${G.c}. Statistique demandée : ${G.st}, comptées uniquement sous le maillot / dans le cadre de "${G.c}" (toutes compétitions officielles confondues, sauf si c'est une compétition précise). Réponds UNIQUEMENT en JSON : {"player":"nom complet correct","value":nombre entier ou null si le joueur n'a jamais joué pour/dans ce contexte ou est inconnu,"note":"une courte phrase de précision (période, doute éventuel)"}`,{modelTier:"default",ctx:{p:[nm],c:[G.c]}});
+if(G.used.includes(norm(r.player||nm))){$("e").textContent="❌ "+(r.player||nm)+" a déjà été cité !";$("b1").disabled=false;return}
+G.pend={i,n:r.player||nm,v:r.value,note:(r.value==null?"Aucune stat trouvée : saisis-la ou annule. ":"")+(r.note||"")+" · estimation IA, corrige si besoin"};
+}catch(e){G.pend={i,n:nm,v:null,note:"Recherche indisponible : saisis la stat manuellement."}}
+r1()}
+function ok1(skip){
+const q=G.pend,v=skip?q.v:$("pv").value;
+if(v===""||v==null||+v<0)return $("e").textContent="Indique un nombre.";
+if(G.used.includes(norm(q.n)))return $("e").textContent="❌ Déjà cité !";
+G.used.push(norm(q.n));G.picks[q.i].push({n:q.n,v:+v});G.pend=null;G.turn++;r1()}
+function res1(){
+const{p,t,picks,st,c}=G;
+const R=p.map((x,k)=>{const s=picks[k].reduce((a,q)=>a+q.v,0);return{x,s,d:Math.abs(t-s),k}}).sort((a,b)=>a.d-b.d);
+$("app").innerHTML=`<h1>Résul<span>tats</span></h1><div class="sub">${t} ${st} · ${esc(c)}</div>
+${R.map((r,j)=>`<div class="card"><div class="row ${j?'':'win'}"><b>${j+1}. ${esc(r.x)}${j?'':' 🏆'}</b><span>${r.s} (écart ${r.d})</span></div><div>${picks[r.k].map(q=>`<span class="tag">${esc(q.n)} ${q.v}</span>`).join("")}</div></div>`).join("")}
+<button onclick="go1Again()">Rejouer</button> ${back()}`}
+function go1Again(){s1()}
+/* JEU 2 */
+const SL=["Défenseur","Milieu","Milieu","Attaquant","Attaquant"],SP=[[50,82],[28,55],[72,55],[28,24],[72,24]];
+function s2(){$("app").innerHTML=`<h2>The Five</h2><div class="card"><div class="t">Deux équipes tirées au sort. À chaque tour, cite un joueur lié à l'une des deux, au poste de ton choix (1 défenseur, 2 milieux, 2 attaquants, dans l'ordre que tu veux). Le five qui marque le plus de buts gagne.</div><label>Joueurs (séparés par des virgules)</label><input id="p" value="Joueur 1, Joueur 2"><label>Type de tirage</label><select id="ty"><option value="n">Sélections nationales (+ club tiré à chaque tour)</option><option value="c">Clubs</option></select><button onclick="go2()">Tirer au sort</button> ${back()}<div class="err" id="e"></div></div>`}
+function go2(){const p=names($("p").value);if(!okP(p))return $("e").textContent="Il faut au moins 2 joueurs aux noms différents.";const ty=$("ty").value,L=ty=="n"?NAT:CLU,a=rnd(L);let b;do{b=rnd(L)}while(b==a);G={p,a,b,ty,rd:0,k:0,club:null,cl:[],used:[],L:p.map(()=>SL.map(()=>null))};intro2()}
+function intro2(){$("app").innerHTML=`<div class="sub">Le duel</div><div class="duel"><div class="tm l">${esc(G.a)}</div><div class="vs">VS</div><div class="tm r">${esc(G.b)}</div></div><div style="text-align:center;opacity:0;animation:fi .5s 2.3s forwards"><button onclick="rd2()">${G.ty=="n"?"Tirer le premier club":"Commencer"}</button></div>${back()}`}
+function rd2(){if(G.rd>=5)return res2();G.k=0;G.ty=="n"?spin2():r2()}
+function spin2(){const f=rnd(CLU.filter(x=>!G.cl.includes(x)));G.cl.push(f);G.club=f;$("app").innerHTML=`<div class="sub">Tour ${G.rd+1}/5 · ${esc(G.a)} vs ${esc(G.b)}</div><div class="t" style="text-align:center">Club tiré au sort…</div><div class="spin" id="sp">?</div>`;let n=0;const t=setInterval(()=>{const e=$("sp");if(!e)return clearInterval(t);if(++n>14){clearInterval(t);e.textContent=f;e.classList.add("done");setTimeout(()=>{if($("sp"))r2()},1200)}else e.textContent=rnd(CLU)},90)}
+function pitch2(L){return `<div class="pitch">${SL.map((s,i)=>{const q=L[i];return `<div class="tl ${q?"":"e"}" style="left:${SP[i][0]}%;top:${SP[i][1]}%"><small>${s}</small><b>${q?esc(q.n):"?"}</b>${q?`<small>${esc(q.c)}</small>`:""}</div>`}).join("")}</div>`}
+function r2(){const{p,a,b,ty,rd,k}=G,L=G.L[k],free=[...new Set(SL.filter((x,i)=>!L[i]))];
+$("app").innerHTML=`<div class="sub">Tour ${rd+1}/5 · ${esc(a)} vs ${esc(b)}</div>${ty=="n"?`<div class="card"><div class="t">Club tiré au sort</div><div class="big win" style="font-size:34px">${esc(G.club)}</div><div class="t">Un joueur de ${esc(a)} ou ${esc(b)} ayant joué à ${esc(G.club)}</div></div>`:`<div class="card t">Un joueur ayant joué pour <b>${esc(a)}</b> ou <b>${esc(b)}</b>.</div>`}
+<div class="card"><h2 class="win" style="font-size:28px">${esc(p[k])}</h2>${pitch2(L)}<label>Joueur</label><input id="pl" placeholder="Nom du joueur"><div class="r"><div><label>Poste</label><select id="ps">${free.map(x=>`<option>${x}</option>`).join("")}</select></div>${ty=="c"?`<div><label>Club</label><select id="pc"><option>${esc(a)}</option><option>${esc(b)}</option></select></div>`:""}</div><div class="err" id="e"></div><button onclick="ok2()">Valider</button></div>
+<div class="t">${p.map((x,j)=>esc(x)+" "+G.L[j].filter(Boolean).length+"/5").join(" · ")}</div>${back()}`}
+function ok2(){const n=$("pl").value.trim(),s=$("ps").value,k=G.k,L=G.L[k];if(!n)return $("e").textContent="Saisis un joueur.";const key=norm(n);if(G.used.includes(key))return $("e").textContent="❌ "+n+" est déjà pris !";const i=SL.findIndex((x,j)=>x==s&&!L[j]);L[i]={n,c:G.ty=="n"?G.club:$("pc").value};G.used.push(key);if(++G.k>=G.p.length){G.rd++;return rd2()}r2()}
+async function res2(){
+const{p}=G,P=[];p.forEach((_,k)=>G.L[k].forEach((q,i)=>P.push({id:k+"_"+i,k,n:q.n,slot:SL[i],club:q.c,g:0,ok:true,why:""})));
+if(!SM){P.forEach(x=>{x.why="À vérifier à la main"});G.rev=P;return rev2()}
+$("app").innerHTML=`<div class="sub">🔎 Vérification des joueurs en cours…</div>`;
+try{
+const q=P.map(x=>({id:x.id,joueur:x.n,poste:x.slot,club:x.club}));
+let r=await SM.json(`Tu es l'arbitre d'un quizz de foot. Duel : ${G.a} vs ${G.b}. ${G.ty=="n"?"Chaque joueur doit avoir la nationalité (ou avoir joué en sélection) de l'une de ces deux équipes.":"Chaque joueur doit avoir joué pour l'un de ces deux clubs."} Pour chaque pick vérifie : (1) le joueur existe, (2) il respecte la condition ci-dessus, (3) son poste principal correspond au poste demandé (Défenseur, Milieu ou Attaquant), (4) il a joué pour le club indiqué. goals = buts marqués avec CE club, toutes compétitions officielles confondues. Si une condition échoue : valid=false et goals=0. Réponds UNIQUEMENT par un tableau JSON [{"id":"...","player":"nom complet","valid":true,"goals":12,"reason":"courte phrase"}]. Picks : ${JSON.stringify(q)}`,{modelTier:"default",ctx:{p:P.map(x=>x.n),c:[...new Set(P.map(x=>x.club))]}});
+if(!Array.isArray(r))r=r.picks||r.results||[];
+const dup={};
+P.forEach(x=>{const y=r.find(z=>z.id==x.id)||{};x.n=y.player||x.n;x.ok=y.valid!==false&&y.goals!=null;x.g=x.ok?+y.goals:0;x.why=y.reason||"";const key=norm(x.n);if(dup[key]){x.ok=false;x.g=0;x.why="Déjà pris (même joueur)"}dup[key]=1})
+}catch(e){P.forEach(x=>{x.why="À vérifier à la main (vérification indisponible)"})}
+G.rev=P;rev2()}
+function rev2(){const{p}=G;
+$("app").innerHTML=`<h2>Vérification</h2><div class="sub">Corrige un chiffre si besoin (estimation IA)</div>
+${p.map((x,k)=>`<div class="card"><h2 class="win" style="font-size:26px">${esc(x)}</h2>${G.rev.filter(y=>y.k==k).map(y=>`<div class="row"><span>${y.ok?"✅":"❌"} <b>${esc(y.n)}</b> <span class="t">${y.slot} · ${esc(y.club)}<br>${esc(y.why)}</span></span><input id="r${y.id}" type="number" min="0" value="${y.g}" style="width:80px"></div>`).join("")}</div>`).join("")}
+<button onclick="fin2()">Calculer le résultat</button> ${back()}`}
+function fin2(){const{p}=G;
+G.rev.forEach(y=>{const e=$("r"+y.id);if(e)y.g=+e.value||0});
+const T=p.map((x,k)=>{const L=G.rev.filter(y=>y.k==k);return{x,tot:L.reduce((a,y)=>a+y.g,0),list:L.map(y=>`${y.ok?"":"⚠ "}${y.n} (${y.g})`)}}).sort((a,b)=>b.tot-a.tot);
+$("app").innerHTML=`<h1>Résul<span>tats</span></h1><div class="sub">${esc(G.a)} vs ${esc(G.b)}</div>
+${T.map((r,j)=>`<div class="card"><div class="row ${j?'':'win'}"><b>${j+1}. ${esc(r.x)}${j?'':' 🏆'}</b><span>${r.tot} buts</span></div><div>${r.list.map(l=>`<span class="tag">${esc(l)}</span>`).join("")}</div></div>`).join("")}
+<button onclick="s2()">Rejouer</button> ${back()}`}
+
+const need=()=>SM?true:($("e").textContent="Ce jeu utilise la vérification IA : autorise-la puis réessaie (ou recharge la page).",false);
+const okP=p=>p.length>=2&&new Set(p.map(norm)).size==p.length;
+const sh=a=>[...a].sort(()=>Math.random()-.5);
+const setup=(t,d,extra,fn)=>`<h2>${t}</h2><div class="card"><div class="t">${d}</div><label>Joueurs (séparés par des virgules)</label><input id="p" value="Joueur 1, Joueur 2">${extra}<button onclick="${fn}()">Lancer</button> ${back()}<div class="err" id="e"></div></div>`;
+const board=(p,f)=>`<div class="card">${p.map((x,k)=>`<div class="row"><b>${esc(x)}</b><span>${f(k)}</span></div>`).join("")}</div>`;
+/* JEU 3 : CHAINON */
+function s3(){$("app").innerHTML=setup("Link-Up","Chacun cite un joueur qui a partagé un club avec le précédent. Le club annoncé est vérifié pour les deux joueurs.",'<label>Vies</label><input id="l" type="number" value="3" min="1">',"go3")}
+function go3(){const p=names($("p").value);if(!okP(p))return $("e").textContent="Il faut au moins 2 joueurs aux noms différents.";if(!need())return;G={p,club:rnd(CLU),al:p.map(()=>+$("l").value||3),hist:[],used:[],i:0,msg:""};r3()}
+function nxt3(){do{G.i=(G.i+1)%G.p.length}while(G.al[G.i]<=0)}
+function r3(){
+const{p,al,hist}=G;if(al.filter(x=>x>0).length<=1)return res3();
+const f=!hist.length,last=hist[hist.length-1];
+$("app").innerHTML=`<h2>Link-Up</h2><div class="card">${f?`<div class="t">Club tiré au sort</div><div class="big win" style="font-size:38px">${esc(G.club)}</div><div class="t">Cite un joueur qui a joué dans ce club.</div>`:`<div class="t">Joueur précédent</div><div class="big" style="font-size:38px">${esc(last.n)}</div>`}
+<h2 class="win" style="font-size:28px;margin-top:10px">${esc(p[G.i])}</h2><label>Joueur cité</label><input id="pl">${f?"":'<label>Club en commun</label><input id="cl">'}
+<div class="r"><button id="b" onclick="add3()">Valider</button><button class="s" onclick="lose3('sèche (-1 vie)')">Je sèche</button></div><div class="err" id="e">${esc(G.msg)}</div></div>
+${board(p,k=>al[k]>0?"❤️".repeat(al[k]):"💀")}<div class="card t">${hist.map(h=>`<span class="tag">${esc(h.n)}${h.c?" · "+esc(h.c):""}</span>`).join("→")}</div>${back()}`}
+function lose3(m){G.al[G.i]--;G.msg=G.p[G.i]+" : "+m;nxt3();r3()}
+async function add3(){
+if(!need())return;
+const nm=$("pl").value.trim(),cl=$("cl")?$("cl").value.trim():"";
+if(!nm||($("cl")&&!cl))return $("e").textContent="Remplis les champs.";
+const f=!G.hist.length;$("b").disabled=true;$("e").textContent="🔎 Vérification…";
+try{
+const r=await SM.json(f?`Quizz foot. Tes connaissances peuvent être en retard sur les transferts récents : en cas de doute, mets valid=false. Le joueur cité est "${nm}". A-t-il réellement joué pour l'équipe première de ${G.club} ? JSON uniquement : {"valid":true,"player":"nom complet","reason":"courte phrase"}`:`Quizz foot « Chaînon ». Date du jour : ${new Date().toLocaleDateString("fr-FR")}. Tes connaissances peuvent être en retard sur les transferts récents : en cas de doute, mets valid=false. Joueur précédent : "${G.hist[G.hist.length-1].n}". Joueur cité : "${nm}". Club annoncé : "${cl}". Valide uniquement si les DEUX joueurs ont réellement joué pour l'équipe première de ce club. JSON uniquement : {"valid":true,"player":"nom complet du joueur cité","club":"nom correct du club","reason":"courte phrase"}`,{modelTier:"default",ctx:{p:f?[nm]:[nm,G.hist[G.hist.length-1].n],c:[cl||G.club]}});
+const n=r.player||nm,k=norm(n);
+if(!r.valid){G.man={nm,cl};$("e").innerHTML=`❌ ${esc(r.reason||"Non validé par l'IA")} (peut-être trop récent). Le groupe tranche :<div class="r"><button class="s" onclick="man3()">Confirmer quand même</button>${f?'<button class="s" onclick="r3()">Réessayer</button>':'<button class="s" onclick="lose3(&quot;refusé (-1 vie)&quot;)">Refuser (-1 vie)</button>'}</div>`;return}
+if(G.used.includes(k))return lose3("❌ "+n+" déjà cité (-1 vie)");
+G.used.push(k);G.hist.push({n,c:r.club||cl||G.club});G.msg="✅ "+n+(r.reason?" · "+r.reason:"");nxt3();r3()
+}catch(e){G.man={nm,cl};$("e").innerHTML='Vérification indisponible. <button class="s" onclick="man3()">Valider à la main</button>';$("b").disabled=false}}
+function man3(){const{nm,cl}=G.man,k=norm(nm);if(G.used.includes(k))return lose3("❌ "+nm+" déjà cité (-1 vie)");G.used.push(k);G.hist.push({n:nm,c:cl||G.club});G.msg="✅ "+nm+" (validé par le groupe)";nxt3();r3()}
+function res3(){const w=G.p[G.al.findIndex(x=>x>0)];
+$("app").innerHTML=`<h1>Vain<span>queur</span></h1><div class="card"><h2 class="win">🏆 ${esc(w)}</h2><div class="t">Chaîne de ${G.hist.length} joueurs</div><div style="margin-top:10px">${G.hist.map(h=>`<span class="tag">${esc(h.n)}${h.c?" · "+esc(h.c):""}</span>`).join("→")}</div></div><button onclick="s3()">Rejouer</button> ${back()}`}
+/* JEU 4 : TOP 10 */
+function s4(){$("app").innerHTML=setup("Top Bin","Un top 10 caché. Cite des noms : rang 1 = 10 pts, rang 10 = 1 pt, hors top 10 = 0.",'<label>Thème (vide = tirage au sort)</label><input id="th" placeholder="Meilleurs buteurs de l\'histoire de la Ligue des champions"><label>Tours par joueur</label><input id="n" type="number" value="3" min="1">',"go4")}
+async function go4(){
+const p=names($("p").value),th=$("th").value.trim()||rnd(TH);
+if(!okP(p))return $("e").textContent="Il faut au moins 2 joueurs aux noms différents.";if(!need())return;
+$("e").textContent="🔎 Constitution du top 10…";
+try{const r=await SM.json(`Tu prépares un quizz foot « Top 10 ». Thème : "${th||"un thème original de culture foot, au choix"}". Donne un top 10 fiable, sans ex aequo, du 1er au 10e. JSON uniquement : {"theme":"intitulé court","list":[{"name":"...","value":"chiffre ou précision"}]}`,{modelTier:"default"});
+G={p,n:+$("n").value||3,th:r.theme||th,L:r.list.slice(0,10).map(x=>({...x,f:null})),sc:p.map(()=>0),turn:0,msg:""};r4()}catch(e){$("e").textContent="Impossible de générer le top 10, réessaie."}}
+function r4(){
+const{p,n,L}=G;if(G.turn>=p.length*n||L.every(x=>x.f!==null))return res4();
+const i=G.turn%p.length;
+$("app").innerHTML=`<h2>Top Bin</h2><div class="sub">${esc(G.th)}</div>
+<div class="card tb"><table class="st"><tr><th>#</th><th>Réponse</th><th>Valeur</th><th>Pts</th><th>Joueur</th></tr>${L.map((x,k)=>`<tr class="${x.f!==null?'f':''}"><td>${k+1}</td><td>${x.f!==null?esc(x.name):"???"}</td><td>${x.f!==null?esc(x.value||""):""}</td><td>${x.f!==null?"+"+(10-k):""}</td><td>${x.f!==null?esc(p[x.f]):""}</td></tr>`).join("")}</table></div>
+<div class="card"><div class="t">Tour ${G.turn+1}/${p.length*n}</div><h2 class="win" style="font-size:28px">${esc(p[i])}</h2><input id="pl" placeholder="Nom cité"><button id="b" onclick="add4(${i})">Valider</button><div class="err" id="e">${esc(G.msg)}</div>${G.msg[0]=="❌"&&G.last?`<button class="s" onclick="man4()">Contester : valider à la main</button>`:""}</div>
+${board(p,k=>G.sc[k]+" pts")}${back()}`}
+async function add4(i){
+const nm=$("pl").value.trim();G.last={i,nm,t:G.turn};if(!nm||!need())return;
+$("b").disabled=true;$("e").textContent="🔎 Vérification…";
+try{const r=await SM.json(`Quizz foot. Thème : "${G.th}". Top 10 : ${JSON.stringify(G.L.map((x,k)=>k+1+". "+x.name))}. Le nom cité est « ${nm} ». Fait-il partie de ce top 10 (même nom abrégé ou surnom) ? JSON uniquement : {"rank":numéro de 1 à 10 ou null}`,{modelTier:"default"});
+const k=r.rank?r.rank-1:-1;
+if(k<0||!G.L[k])G.msg="❌ "+nm+" n'est pas dans le top 10 (0 pt)";
+else if(G.L[k].f!==null)G.msg="⚠ "+G.L[k].name+" déjà trouvé (0 pt)";
+else{G.L[k].f=i;G.sc[i]+=10-k;G.msg="✅ "+G.L[k].name+" : rang "+(k+1)+" (+"+(10-k)+")"}
+G.turn++;r4()}catch(e){const q=norm(nm);sc4(i,q.length<3?-1:G.L.findIndex(x=>norm(x.name).includes(q)),nm)}}
+function man4(){const q=G.last,r=+prompt("Rang réel de « "+q.nm+" » dans le top 10 (1 à 10) ?");if(!r||r<1||r>10)return;const k=r-1;if(G.L[k].f!==null){alert("Ce rang est déjà trouvé.");return}G.L[k].f=q.i;G.L[k].name=q.nm;G.sc[q.i]+=10-k;G.msg="✅ "+q.nm+" validé à la main : rang "+r+" (+"+(10-k)+")";G.last=null;r4()}
+function sc4(i,k,nm){if(k<0||!G.L[k])G.msg="❌ "+nm+" n'est pas dans le top 10 (0 pt)";else if(G.L[k].f!==null)G.msg="⚠ "+G.L[k].name+" déjà trouvé (0 pt)";else{G.L[k].f=i;G.sc[i]+=10-k;G.msg="✅ "+G.L[k].name+" : rang "+(k+1)+" (+"+(10-k)+")"}G.turn++;r4()}
+function res4(){
+const{p,L}=G,R=p.map((x,k)=>({x,s:G.sc[k]})).sort((a,b)=>b.s-a.s);
+$("app").innerHTML=`<h1>Résul<span>tats</span></h1><div class="sub">${esc(G.th)}</div>
+${R.map((r,j)=>`<div class="card"><div class="row ${j?'':'win'}"><b>${j+1}. ${esc(r.x)}${j?'':' 🏆'}</b><span>${r.s} pts</span></div></div>`).join("")}
+<div class="card"><h2 style="font-size:24px">Le vrai top 10</h2>${L.map((x,k)=>`<div class="row"><span>${k+1}. ${esc(x.name)} <span class="t">${esc(x.value||"")}</span></span><span class="t">${x.f!==null?esc(p[x.f]):"non trouvé"}</span></div>`).join("")}</div>
+<button onclick="s4()">Rejouer</button> ${back()}`}
+/* JEU 5 : L'ORDRE */
+function s5(){$("app").innerHTML=setup("Standings","Classe 5 éléments dans le bon ordre. Par élément : 4 pts si exact, 3 pts à 1 rang près, etc. Les manches s'additionnent.",'<label>Thème (vide = tirage au sort à chaque manche)</label><input id="th" placeholder="Ballons d\'Or, stades, transferts…">',"go5")}
+function go5(){const p=names($("p").value);if(!okP(p))return $("e").textContent="Il faut au moins 2 joueurs aux noms différents.";if(!need())return;G={p,th:$("th").value.trim(),tot:p.map(()=>0),seen:[]};nx5()}
+async function nx5(){
+$("app").innerHTML=`<div class="sub">🔎 Préparation du défi…</div>`;
+const pool=OT.filter(x=>!(G.tt||[]).includes(x)),th=G.th||rnd(pool.length?pool:OT);(G.tt=G.tt||[]).push(th);
+try{const r=await SM.json(`Crée un défi de classement pour un quizz de foot. Thème : "${th}". ${G.seen.length?"Critères déjà joués, à éviter : "+G.seen.join("; ")+".":""} Donne 5 éléments (joueurs, clubs, stades ou sélections) à classer selon UN critère chiffré précis, avec des valeurs toutes différentes et fiables. JSON uniquement : {"critere":"ex : Nombre de buts en Ligue des champions","sens":"décroissant ou croissant","items":[{"name":"...","value":nombre}]}`,{modelTier:"default"});
+const dec=/^d/i.test((r.sens||"d").trim()),it=r.items.slice(0,5).map(x=>({name:x.name,value:+x.value}));
+it.sort((a,b)=>dec?b.value-a.value:a.value-b.value);it.forEach((x,k)=>x.rank=k+1);
+G.seen.push(r.critere);G.r={c:r.critere,th,dec,items:sh(it)};r5()}catch(e){$("app").innerHTML=`<div class="card"><div class="err">Impossible de créer le défi.</div><button onclick="nx5()">Réessayer</button> ${back()}</div>`}}
+function r5(){const{p,r}=G;
+$("app").innerHTML=`<h2>Standings</h2><div class="sub">Thème tiré au sort : ${esc(r.th)}</div><div class="card"><b>${esc(r.c)}</b></div><div class="card t">Classe de 1 à 5, du ${r.dec?"plus grand au plus petit":"plus petit au plus grand"}. Chaque joueur remplit sa colonne.</div>
+<div class="card tb"><table><tr><th>Élément</th>${p.map(x=>`<th>${esc(x)}</th>`).join("")}</tr>${r.items.map((it,j)=>`<tr><td><b>${esc(it.name)}</b></td>${p.map((x,k)=>`<td><select id="o${k}_${j}"><option value="">—</option>${[1,2,3,4,5].map(v=>`<option>${v}</option>`).join("")}</select></td>`).join("")}</tr>`).join("")}</table></div>
+<div class="err" id="e"></div><button onclick="fin5()">Valider</button> <button class="s" onclick="nx5()">Autre défi (valeurs douteuses)</button> ${back()}`}
+function fin5(){const{p,r}=G,rp=[];
+for(let k=0;k<p.length;k++){const g=r.items.map((_,j)=>+$(`o${k}_${j}`).value);
+if(g.some(v=>!v)||new Set(g).size<5)return $("e").textContent=`${p[k]} : utilise chaque rang de 1 à 5 une seule fois.`;
+rp.push(r.items.reduce((a,it,j)=>a+Math.max(0,4-Math.abs(g[j]-it.rank)),0))}
+rp.forEach((v,k)=>G.tot[k]+=v);
+const R=p.map((x,k)=>({x,m:rp[k],t:G.tot[k]})).sort((a,b)=>b.t-a.t);
+$("app").innerHTML=`<h1>Résul<span>tats</span></h1><div class="sub">${esc(r.c)}</div>
+<div class="card">${[...r.items].sort((a,b)=>a.rank-b.rank).map(it=>`<div class="row"><span>${it.rank}. <b>${esc(it.name)}</b></span><span class="win">${it.value}</span></div>`).join("")}</div>
+${R.map((x,j)=>`<div class="card"><div class="row ${j?'':'win'}"><b>${j+1}. ${esc(x.x)}${j?'':' 🏆'}</b><span>+${x.m} · total ${x.t} pts</span></div></div>`).join("")}
+<button onclick="nx5()">Manche suivante</button> ${back()}`}
+
+/* JEU 6 : LE DS */
+function s6(){$("app").innerHTML=setup("The DS","Directeur sportif : annonce un joueur et son transfert. Le montant est vérifié. Approche-toi au plus près de la somme cible.",'<div class="r"><div><label>Somme cible (M€)</label><input id="t" type="number" placeholder="vide = tirage au sort"></div><div><label>Joueurs/pers.</label><input id="n" type="number" value="4" min="1" max="8"></div></div>',"go6")}
+function go6(){const p=names($("p").value),t=+$("t").value||Math.round((400+Math.random()*700)/50)*50;if(!okP(p))return $("e").textContent="Il faut au moins 2 joueurs aux noms différents.";if(!need())return;G={p,t,n:+$("n").value||4,picks:p.map(()=>[]),used:[],turn:0,pend:null,msg:""};r6()}
+function r6(){
+const{p,t,n,picks}=G,tot=p.length*n;if(G.turn>=tot)return res6();
+const i=G.turn%p.length,q=G.pend;
+$("app").innerHTML=`<h2>The DS</h2><div class="sub">Cible : ${t} M€</div><div class="card"><div class="t">Tour ${G.turn+1}/${tot}</div><h2 class="win" style="font-size:28px">${esc(p[i])}</h2>
+${q?`<div class="big win" style="font-size:30px">${esc(q.n)}</div><div class="t">${esc(q.tr)} ${esc(q.note||"")}</div>${q.unv?`<div class="t"><a style="color:var(--cy)" target="_blank" rel="noopener" href="https://www.transfermarkt.fr/schnellsuche/ergebnis/schnellsuche?query=${encodeURIComponent(q.n)}">🔗 Chercher ${esc(q.n)} sur Transfermarkt</a></div>`:""}<label>Montant en M€ (modifiable)</label><input id="pv" type="number" min="0" value="${q.v??""}"><div class="r"><button onclick="ok6()">${q.unv?"Confirmer quand même":"Confirmer"}</button><button class="s" onclick="G.pend=null;G.msg='';r6()">Annuler</button></div>`:`<label>Joueur</label><input id="pl" placeholder="Neymar"><label>Transfert</label><input id="tr" placeholder="Barcelone vers PSG"><button id="b" onclick="add6(${i})">Valider</button>`}
+<div class="err" id="e">${esc(G.msg)}</div></div>
+${board(p,k=>picks[k].map(x=>`<span class="tag">${esc(x.n)} ${x.v} M€</span>`).join("")+" = "+picks[k].reduce((a,x)=>a+x.v,0)+" M€")}${back()}`}
+async function add6(i){
+const nm=$("pl").value.trim(),tr=$("tr").value.trim();
+if(!nm||!tr)return $("e").textContent="Remplis le joueur et le transfert.";
+if(G.used.includes(norm(nm)))return $("e").textContent="❌ Déjà cité !";
+if(!need())return;$("b").disabled=true;$("e").textContent="🔎 Vérification du transfert…";
+try{const r=await SM.json(`Quizz foot « Le DS ». Date du jour : ${new Date().toLocaleDateString("fr-FR")}. Tes connaissances peuvent être en retard sur le mercato récent : si tu ne connais pas ce transfert, mets valid=false (ne dis jamais qu'il n'a pas eu lieu) et explique dans note. Joueur : "${nm}". Transfert annoncé : "${tr}". Vérifie que ce joueur a bien été transféré entre ces deux clubs, puis donne le montant officiel de l'indemnité de transfert en millions d'euros (nombre ; prêt ou libre = 0). S'il y a eu plusieurs transferts entre ces clubs, prends le plus connu. JSON uniquement : {"valid":true,"player":"nom complet","from":"club de départ","to":"club d'arrivée","year":"année","fee":nombre ou null,"note":"courte précision"}`,{modelTier:"default",ctx:{p:[nm]}});
+if(r.valid!==true){G.pend={i,n:r.player||nm,tr,v:r.fee??null,unv:1,note:"· ⚠ Transfert non reconnu"+(r.note?" ("+r.note+")":"")+". Il est peut-être trop récent : vérifie sur Transfermarkt, puis confirme avec le bon montant."};G.msg="";return r6()}
+if(G.used.includes(norm(r.player||nm))){G.msg="❌ "+(r.player||nm)+" déjà cité !";return r6()}
+G.pend={i,n:r.player||nm,tr:`${r.from} → ${r.to}${r.year?" ("+r.year+")":""}`,v:r.fee,note:"· "+(r.note||"")+" · estimation IA, corrige si besoin"};G.msg="";r6()
+}catch(e){G.pend={i,n:nm,tr,v:null,unv:1,note:"· vérification indisponible : saisis le montant (Transfermarkt)"};G.msg="";r6()}}
+function ok6(){const q=G.pend,v=$("pv").value;
+if(v===""||+v<0)return $("e").textContent="Indique un montant.";
+if(G.used.includes(norm(q.n)))return $("e").textContent="❌ Déjà cité !";
+G.used.push(norm(q.n));G.picks[q.i].push({n:q.n,tr:q.tr,v:+v});G.pend=null;G.msg="";G.turn++;r6()}
+function res6(){
+const{p,t,picks}=G,R=p.map((x,k)=>{const s=picks[k].reduce((a,q)=>a+q.v,0);return{x,s,d:Math.abs(t-s),k}}).sort((a,b)=>a.d-b.d);
+$("app").innerHTML=`<h1>Résul<span>tats</span></h1><div class="sub">Cible : ${t} M€</div>
+${R.map((r,j)=>`<div class="card"><div class="row ${j?'':'win'}"><b>${j+1}. ${esc(r.x)}${j?'':' 🏆'}</b><span>${r.s} M€ (écart ${r.d})</span></div>${picks[r.k].map(q=>`<div class="t">${esc(q.n)} · ${esc(q.tr)} · ${q.v} M€</div>`).join("")}</div>`).join("")}
+<button onclick="s6()">Rejouer</button> ${back()}`}
+
+/* JEU 7 : LE PARCOURS */
+function s7(){$("app").innerHTML=setup("Career Path","Un joueur, 5 clubs : un seul est bon. Trouve le club où il a joué. Les autres n'y ont jamais joué.",'<label>Mode</label><select id="md"><option value="n">Joueur tiré au sort (nom affiché)</option><option value="p">Photo perso (maillot masqué)</option></select><label>Questions par joueur</label><input id="n" type="number" value="3" min="1">',"go7")}
+function go7(){const p=names($("p").value);if(!okP(p))return $("e").textContent="Il faut au moins 2 joueurs aux noms différents.";if(!need())return;G={p,md:$("md").value,n:+$("n").value||3,sc:p.map(()=>0),turn:0,seen:[],q:null};nx7()}
+function nx7(){if(G.turn>=G.p.length*G.n)return res7();G.md=="p"?ph7():gen7(null)}
+function retry7(){gen7(G.md=="p"?G.nmP:null)}
+function ph7(){G.img=null;
+$("app").innerHTML=`<h2>Photo perso</h2><div class="card"><div class="t">Maître du jeu : choisis une photo du joueur (cachée aux autres), écris son nom, puis règle le cache pour masquer le maillot.</div><label>Photo</label><input id="im" type="file" accept="image/*" onchange="im7()"><label>Nom du joueur</label><input id="nm">
+<div class="blob"><div class="bi" id="pv"></div><div class="mask" id="mk"></div></div>
+<label>Cache : position</label><input id="mt" type="range" min="0" max="90" value="55" oninput="mk7()"><label>Cache : hauteur</label><input id="mh" type="range" min="10" max="100" value="45" oninput="mk7()">
+<button onclick="ok7()">Lancer la question</button><div class="err" id="e"></div></div>${back()}`;mk7()}
+function im7(){const f=$("im").files[0];if(!f)return;const i=new Image();i.onload=()=>{const k=Math.min(1,800/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=i.width*k;c.height=i.height*k;c.getContext("2d").drawImage(i,0,0,c.width,c.height);G.img=c.toDataURL("image/jpeg",.85);$("pv").style.backgroundImage=`url(${G.img})`};i.src=URL.createObjectURL(f)}
+function mk7(){const m=$("mk");m.style.top=$("mt").value+"%";m.style.height=$("mh").value+"%"}
+function ok7(){const n=$("nm").value.trim();if(!G.img||!n)return $("e").textContent="Ajoute une photo et le nom du joueur.";G.mask={t:+$("mt").value,h:+$("mh").value};G.nmP=n;gen7(n)}
+async function gen7(name){
+$("app").innerHTML=`<div class="sub">🔎 Préparation de la question…</div>`;
+for(let t=0;t<2;t++)try{
+const r=await SM.json(`Quizz foot « Le Parcours ». Date du jour : ${new Date().toLocaleDateString("fr-FR")}. ${name?`Le joueur est "${name}".`:`Choisis au hasard un footballeur professionnel connu (varie époques, pays et postes ; évite : ${G.seen.join(", ")||"aucun"}).`} Donne : "bon" = un club où il a réellement joué en équipe première ; "faux" = 4 clubs plausibles (niveau et pays comparables) où il n'a JAMAIS joué, même en prêt ; "carriere" = tous ses clubs. JSON uniquement : {"joueur":"nom complet","bon":"club","faux":["a","b","c","d"],"carriere":["..."]}`,{modelTier:"default",ctx:{p:name?[name]:[]}});
+const car=(r.carriere||[]).map(norm),faux=[...new Set(r.faux||[])].filter(x=>!car.includes(norm(x))&&norm(x)!=norm(r.bon));
+if(!r.bon||faux.length<2)continue;
+G.seen.push(r.joueur);G.q={j:r.joueur,bon:r.bon,car:r.carriere||[r.bon],opts:sh([r.bon,...faux.slice(0,4)]),pick:null};return q7()}catch(e){}
+$("app").innerHTML=`<div class="card"><div class="err">Impossible de préparer la question.</div><button onclick="retry7()">Réessayer</button> ${back()}</div>`}
+function q7(){const{p,q,md}=G,i=G.turn%p.length,pos=[[0,46],[116,4],[232,46],[58,136],[174,136]];
+$("app").innerHTML=`<div class="sub">Tour ${G.turn+1}/${p.length*G.n} · ${esc(p[i])}</div>
+<div class="blob">${md=="p"?`<div class="bi" style="background-image:url(${G.img})"></div>${q.pick===null?`<div class="mask" style="top:${G.mask.t}%;height:${G.mask.h}%"></div>`:""}`:`<div class="bi nm"><span>${esc(q.j)}</span></div>`}</div>
+<div class="cap">${md=="p"?"Qui est-ce ?":"Career Path"} · <span>où a-t-il joué ?</span></div>
+<div class="opts">${q.opts.map((o,k)=>`<button class="ob ${q.pick===null?"":o==q.bon?"ok":q.pick==o?"ko":""}" style="left:${pos[k][0]}px;top:${pos[k][1]}px" ${q.pick===null?`onclick="ans7(${k})"`:"disabled"}>${esc(o)}</button>`).join("")}</div>
+${q.pick!==null?`<div class="card"><b class="win">${q.pick==q.bon?"✅ Bonne réponse !":"❌ Raté, c'était "+esc(q.bon)}</b><div class="t" style="margin-top:6px">${esc(q.j)} : ${q.car.map(esc).join(" → ")}</div>${q.pick!=q.bon&&!q.ov?`<button class="s" onclick="G.sc[G.turn%G.p.length]++;G.q.ov=1;q7()">Valider quand même (le groupe tranche)</button> `:""}<button onclick="G.turn++;nx7()">Suivant</button></div>`:""}${back()}`}
+function ans7(k){const q=G.q;q.pick=q.opts[k];if(q.pick==q.bon)G.sc[G.turn%G.p.length]++;q7()}
+function res7(){const R=G.p.map((x,k)=>({x,s:G.sc[k]})).sort((a,b)=>b.s-a.s);
+$("app").innerHTML=`<h1>Résul<span>tats</span></h1>${R.map((r,j)=>`<div class="card"><div class="row ${j?'':'win'}"><b>${j+1}. ${esc(r.x)}${j?'':' 🏆'}</b><span>${r.s}/${G.n}</span></div></div>`).join("")}<button onclick="s7()">Rejouer</button> ${back()}`}
+buildNav();
+[1,2,3,4,5,6,7].forEach(n=>{const o=window["s"+n];window["s"+n]=function(){act(n);return o.apply(this,arguments)}});
+home();
+</script></body></html>
